@@ -86,6 +86,10 @@ button {
   &__item {
     border-right: 1px solid $gray;
 
+    &:hover {
+      background-color: $black;
+    }
+
     &:last-child {
       border: none;
     }
@@ -101,6 +105,10 @@ button {
     text-transform: capitalize;
     font-family: 'Dosis', sans-serif;
     padding: 5px 10px;
+
+    &:hover {
+      color: $white;
+    }
   }
 }
 
@@ -168,5 +176,13 @@ button {
     }
   }
 
+}
 
+.item.done span{
+  text-decoration: line-through;
+}
+
+.item.important span{
+  color: $tomato;
+  font-weight: bold;
 }
