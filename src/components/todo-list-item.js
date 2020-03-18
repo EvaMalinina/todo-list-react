@@ -3,35 +3,36 @@ import '../styles/main.scss'
 
 export default class TodoItem extends Component {
 
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.onLabelClick = () => {
-      this.setState(({ done }) => {
-        return {
-          done: !done
-        }
-      });
-    };
+  //   this.onLabelClick = () => {
+  //     this.setState(({ done }) => {
+  //       return {
+  //         done: !done
+  //       }
+  //     });
+  //   };
 
-    this.onMarkImportant = (e) => {
-      e.preventDefault();
-      this.setState(({ important }) => {
-        return {
-          important: !important
-        }
-      });
-    };
+  //   this.onMarkImportant = (e) => {
+  //     e.preventDefault();
+  //     this.setState(({ important }) => {
+  //       return {
+  //         important: !important
+  //       }
+  //     });
+  //   };
 
-    this.state = {
-      done: false,
-      important: false
-    };
-  }
+  //   this.state = {
+  //     done: false,
+  //     important: false
+  //   };
+  // }
 
   render() {
-    const { label, onDeleted } = this.props;
-    const { done, important } = this.state;
+    const { label, onDeleted, 
+            onToggleImportant, onToggleDone,
+            done, important} = this.props;
 
     let classNames = 'item';
     if (done) {
@@ -44,7 +45,7 @@ export default class TodoItem extends Component {
 
     return (
       <div className={ classNames }>
-        <span onClick={ this.onLabelClick } >{ label }</span>
+        <span onClick={ onToggleDone } >{ label }</span>
         <div className="item__btns">
           <a href="#1" 
             className="item__icon"
@@ -54,7 +55,7 @@ export default class TodoItem extends Component {
           </a>
           <a href="#2" 
             className="item__icon"
-            onClick={ this.onMarkImportant }
+            onClick={ onToggleImportant }
           >
             <i className="fas fa-exclamation"></i>
           </a>
