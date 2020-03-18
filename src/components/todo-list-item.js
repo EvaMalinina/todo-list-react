@@ -7,15 +7,19 @@ export default class TodoItem extends Component {
     super();
 
     this.onLabelClick = () => {
-      this.setState({
-        done: true
+      this.setState(({ done }) => {
+        return {
+          done: !done
+        }
       });
     };
 
     this.onMarkImportant = (e) => {
       e.preventDefault();
-      this.setState({
-        important: true
+      this.setState(({ important }) => {
+        return {
+          important: !important
+        }
       });
     };
 
@@ -26,7 +30,7 @@ export default class TodoItem extends Component {
   }
 
   render() {
-    const { label } = this.props;
+    const { label, onDeleted } = this.props;
     const { done, important } = this.state;
 
     let classNames = 'item';
@@ -36,21 +40,19 @@ export default class TodoItem extends Component {
 
     if (important) {
       classNames += ' important';
-    }
-
-    // const style = {
-    //   color: important ? 'tomato' : 'black',
-    //   fontWeight: important ? 'bold' : 'normal'
-    // };  
+    } 
 
     return (
       <div className={ classNames }>
         <span onClick={ this.onLabelClick } >{ label }</span>
         <div className="item__btns">
-          <a href="google.com" className="item__icon">
+          <a href="#1" 
+            className="item__icon"
+            onClick={ onDeleted }
+          >
             <i className="fas fa-trash-alt"></i>
           </a>
-          <a href="google.com" 
+          <a href="#2" 
             className="item__icon"
             onClick={ this.onMarkImportant }
           >

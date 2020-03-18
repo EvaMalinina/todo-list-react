@@ -118,6 +118,7 @@ button {
   flex-direction: column;
   border: 1px solid $gray;
   border-radius: 4px;
+  margin-bottom: 20px;
 
   &__item {
     padding: 10px 30px 10px 20px;
@@ -175,7 +176,6 @@ button {
       outline: $darkblue;
     }
   }
-
 }
 
 .item.done span{
@@ -185,4 +185,12 @@ button {
 .item.important span{
   color: $tomato;
   font-weight: bold;
+}
+
+.add {
+  
+  &__btn {
+    border: 1px solid $gray;
+    padding: 10px;
+  }
 }

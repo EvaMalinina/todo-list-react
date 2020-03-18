@@ -1,27 +1,76 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import AppHeader from './components/app-header';
 import TodoList from './components/todo-list';
 import Panels from './components/panels';
+import AddForm from './components/form-add';
 
 import './styles/main.scss';
 
-const App = () => {
+export default class App extends Component {
 
-  const todoData = [
-    {label: 'Drink Coffee', important: false, id: 1},
-    {label: 'Create awesome app', important: true, id: 2},
-    {label: 'Have lunch', important: false, id: 3}
-  ]
+  maxId = 100;
 
-  return (
-    <div className="wrapper">
-      <AppHeader/>
-      <Panels/>
-      <TodoList todos={ todoData }/>
-    </div>
-  )
+  state = {
+    todoData: [
+      {label: 'Drink Coffee', important: false, id: 1},
+      {label: 'Create awesome app', important: true, id: 2},
+      {label: 'Have lunch', important: false, id: 3}
+    ]
+  };
+
+  deleteItem = (id) => {
+
+    this.setState(({ todoData }) => {
+      const indx = todoData.findIndex((el) => el.id === id);
+      
+      const newArr = [
+        ...todoData.slice( 0, indx ),
+        ...todoData.slice( indx + 1)
+      ];
+
+      return {
+        todoData: newArr
+      }
+      
+    })
+  };
+
+  addItem = (text) => {
+    
+    const newItem = {
+      label: text,
+      important: false,
+      id: this.maxId++
+    }
+
+    this.setState(({ todoData }) => {
+      
+      const newArr = [
+        ...todoData,
+        newItem
+      ];
+
+      return {
+        todoData: newArr
+      }
+    })
+  };
+  
+  render() {
+    return (
+      <div className="wrapper">
+        <AppHeader/>
+        <Panels/>
+        <TodoList 
+          todos={ this.state.todoData }
+          onDeleted={ this.deleteItem }
+          onAdd={ this.addItem }
+        />
+        <AddForm onAdd={ this.addItem}/>
+      </div>
+    )
+  }
 };
 
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
