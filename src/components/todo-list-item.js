@@ -3,32 +3,6 @@ import '../styles/main.scss'
 
 export default class TodoItem extends Component {
 
-  // constructor() {
-  //   super();
-
-  //   this.onLabelClick = () => {
-  //     this.setState(({ done }) => {
-  //       return {
-  //         done: !done
-  //       }
-  //     });
-  //   };
-
-  //   this.onMarkImportant = (e) => {
-  //     e.preventDefault();
-  //     this.setState(({ important }) => {
-  //       return {
-  //         important: !important
-  //       }
-  //     });
-  //   };
-
-  //   this.state = {
-  //     done: false,
-  //     important: false
-  //   };
-  // }
-
   render() {
     const { label, onDeleted, 
             onToggleImportant, onToggleDone,

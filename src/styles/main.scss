@@ -61,19 +61,23 @@ button {
 }
 
 .search {
+  margin-right: 3%;
+  width: 60%;
+
+  &__inpt {
   padding: 10px;
   border: 1px solid $gray;
-  margin-right: 3%;
   outline: none;
   text-transform: lowercase;
   border-radius: 4px;
-  width: 60%;
+  width: 100%;
 
-  &::placeholder {
-    line-height: 50px;
-    height: 50px;
+    &::placeholder {
+      line-height: 50px;
+      height: 50px;
+    }
   }
-}
+} 
 
 .filter {
 
@@ -188,7 +192,18 @@ button {
 }
 
 .add {
-  
+  width: 90%;
+  display: flex;
+  justify-content: center;
+
+  &__inpt {
+    margin-right: 5%;
+    border: none;
+    border-bottom: 1px solid $gray;
+    outline: none;
+    line-height: 2;
+  }
+
   &__btn {
     border: 1px solid $gray;
     padding: 10px;

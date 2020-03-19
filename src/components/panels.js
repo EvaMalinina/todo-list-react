@@ -2,10 +2,12 @@ import React from 'react';
 import SearchPanel from './search-panel';
 import FilterPanel from './filter-panel'
 
-const Panels = () => {
+const Panels = ({ onLabelSearch }) => {
   return (
     <div className="panels">
-      <SearchPanel/>
+      <SearchPanel 
+        onLabelSearch={ onLabelSearch }
+      />
       <FilterPanel/>
     </div>
   )
