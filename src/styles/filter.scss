@@ -1,0 +1,36 @@
+.filter {
+
+  &__list {
+    display: flex;
+    border: 1px solid $gray;
+    border-radius: 4px;
+  }
+
+  &__item {
+    border-right: 1px solid $gray;
+
+    &:hover {
+      background-color: $black;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &__item .active {
+    background-color: $blue-green;
+    border: 1px solid $blue-green;
+    color: $white;
+  }
+
+  &__btn {
+    text-transform: capitalize;
+    font-family: 'Dosis', sans-serif;
+    padding: 5px 10px;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

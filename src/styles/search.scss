@@ -1,0 +1,18 @@
+.search {
+  margin-right: 3%;
+  width: 60%;
+
+  &__inpt {
+  padding: 10px;
+  border: 1px solid $gray;
+  outline: none;
+  text-transform: lowercase;
+  border-radius: 4px;
+  width: 100%;
+
+    &::placeholder {
+      line-height: 50px;
+      height: 50px;
+    }
+  }
+} 

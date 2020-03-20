@@ -1,0 +1,18 @@
+.add {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+
+  &__inpt {
+    margin-right: 5%;
+    border: none;
+    border-bottom: 1px solid $gray;
+    outline: none;
+    line-height: 2;
+  }
+
+  &__btn {
+    border: 1px solid $gray;
+    padding: 10px;
+  }
+}

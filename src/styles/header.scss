@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 35px;
+    text-transform: uppercase;
+  }
+
+  span {
+    color: $gray;
+    align-self: flex-end;
+  }
+}
